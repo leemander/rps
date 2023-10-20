@@ -62,8 +62,14 @@ function handleUserSelection(choice) {
 
 function renderEndGame() {
   scoreElement.textContent = score;
-  gameActive.classList.add("hide");
-  gameEnd.classList.add("show");
+  gameActive.classList.add("animate");
+  setTimeout(() => {
+    gameActive.classList.add("hide");
+    gameEnd.classList.add("show");
+  }, 700);
+  setTimeout(() => {
+    gameEnd.classList.add("animate");
+  }, 1);
   userChoiceElement.classList.add(`game__button--${userChoice}`);
   gameStatusElement.textContent = gameState;
   computerChoiceElement.classList.add(`game__button--${computerChoice}`);

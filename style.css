@@ -73,12 +73,16 @@ select {
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 body {
-  background-color: hsl(235, 48%, 16%);
+  background: linear-gradient(
+    hsl(235, 48%, 16%) 0%,
+    hsla(235, 48%, 16%, 0.9) 12.5%,
+    hsla(235, 48%, 16%, 0.7) 100%
+  );
   color: #ffff;
-  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   overflow: hidden;
   padding-top: 3em;
 }
@@ -91,8 +95,8 @@ body {
 
 header {
   align-items: center;
-  border: 2.5px solid hsl(216, 18%, 45%);
   border-radius: 1em;
+  border: 2.5px solid hsl(216, 18%, 45%);
   display: flex;
   justify-content: space-between;
   padding: 1.5em;
@@ -114,7 +118,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1em 3em 0 3em;
+  padding: 1em 2em;
   text-align: center;
   text-transform: uppercase;
 }
@@ -134,22 +138,24 @@ h1 {
 
 .game--active {
   aspect-ratio: 1;
-  display: grid;
   background-image: url(./images/bg-triangle.svg);
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   margin: auto;
   max-width: 40em;
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .game__button {
   aspect-ratio: 1;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: 50%;
-  border: 1em solid;
   border-radius: 50%;
+  border: 1em solid;
   cursor: pointer;
   display: block;
   height: 12em;
@@ -172,6 +178,10 @@ h1 {
   border-color: hsl(349, 68%, 54%);
   grid-column: 1 / -1;
   margin: auto;
+}
+
+.game--active.animate {
+  opacity: 0;
 }
 
 .game--active.hide {
@@ -232,6 +242,6 @@ h1 {
   width: 70%;
 }
 
-.game__end-status button:is(:focus, :hover) {
+button:not(:disabled):is(:focus, :hover) {
   transform: scale(0.95);
 }
