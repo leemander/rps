@@ -151,6 +151,7 @@ h1 {
   border: 1em solid;
   border-radius: 50%;
   cursor: pointer;
+  display: block;
   height: 12em;
   margin: auto;
 }
@@ -183,4 +184,54 @@ h1 {
 
 .game--end.show {
   display: flex;
+  justify-content: space-between;
+  margin-top: 4em;
+}
+
+.game--end.show > * {
+  width: 100%;
+}
+
+.game--end p {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+}
+
+.game__button:disabled {
+  background-color: #ffff;
+  cursor: unset;
+  margin: 2em auto;
+}
+
+.game__end-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game__end-status p {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.game__end-status button {
+  background-color: #ffff;
+  border: 0;
+  border-radius: 0.5em;
+  color: hsl(235, 48%, 16%);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  padding: 1em 0;
+  text-transform: uppercase;
+  width: 70%;
+}
+
+.game__end-status button:is(:focus, :hover) {
+  transform: scale(0.95);
 }
