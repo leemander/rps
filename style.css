@@ -1,3 +1,11 @@
+.game--active.hide {
+  display: none;
+}
+
 .game--end {
   display: none;
+}
+
+.game--end.show {
+  display: flex;
 }

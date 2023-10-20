@@ -1,5 +1,8 @@
 const scoreElement = document.getElementById("score");
 
+const gameActive = document.getElementById("game-active");
+const gameEnd = document.getElementById("game-end");
+
 const gameButtons = document.querySelectorAll(".game__button");
 
 let userChoice = "";
@@ -40,6 +43,12 @@ function handleUserSelection(choice) {
   } else {
     gameState = "draw";
   }
+  renderEndGame();
+}
+
+function renderEndGame() {
+  gameActive.classList.add("hide");
+  gameEnd.classList.add("show");
 }
 
 gameButtons.forEach((button) =>
