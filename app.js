@@ -5,6 +5,18 @@ const gameEnd = document.getElementById("game-end");
 
 const gameButtons = document.querySelectorAll(".game__button");
 
+const userChoiceElement = document.getElementById("user-choice");
+const gameStatusElement = document.getElementById("game-status");
+const computerChoiceElement = document.getElementById("computer-choice");
+const restartButton = document.getElementById("restart");
+
+let score = 0;
+if (localStorage.getItem("score")) {
+  score = localStorage.getItem("score");
+}
+
+scoreElement.textContent = score;
+
 let userChoice = "";
 let computerChoice = "";
 let gameState = "active";
@@ -33,6 +45,8 @@ function handleUserSelection(choice) {
     (userChoice === "paper" && computerChoice === "rock") ||
     (userChoice === "scissors" && computerChoice === "paper")
   ) {
+    score++;
+    localStorage.setItem("score", score);
     gameState = "win";
   } else if (
     (userChoice === "rock" && computerChoice === "paper") ||
@@ -47,8 +61,12 @@ function handleUserSelection(choice) {
 }
 
 function renderEndGame() {
+  scoreElement.textContent = score;
   gameActive.classList.add("hide");
   gameEnd.classList.add("show");
+  userChoiceElement.classList.add(`game__button--${userChoice}`);
+  gameStatusElement.textContent = gameState;
+  computerChoiceElement.classList.add(`game__button--${computerChoice}`);
 }
 
 gameButtons.forEach((button) =>
@@ -57,3 +75,5 @@ gameButtons.forEach((button) =>
     handleUserSelection(choice);
   })
 );
+
+restartButton.addEventListener("click", () => location.reload());
