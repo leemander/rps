@@ -18,18 +18,37 @@
       </header>
       <main>
         <section class="game">
-          <button class="game__button game__button--paper" data-choice="paper">
-            Paper
-          </button>
-          <button
-            class="game__button game__button--scissors"
-            data-choice="scissors"
-          >
-            Scissors
-          </button>
-          <button class="game__button game__button--rock" data-choice="rock">
-            Rock
-          </button>
+          <div class="game--active">
+            <button
+              class="game__button game__button--paper"
+              data-choice="paper"
+            >
+              Paper
+            </button>
+            <button
+              class="game__button game__button--scissors"
+              data-choice="scissors"
+            >
+              Scissors
+            </button>
+            <button class="game__button game__button--rock" data-choice="rock">
+              Rock
+            </button>
+          </div>
+          <div class="game--end">
+            <div class="game__user-choice">
+              <p>You Picked</p>
+              <button class="game__button" disabled></button>
+            </div>
+            <div class="game__end-status">
+              <p>You <span id="game-status"></span></p>
+              <button id="restart">Play Again</button>
+            </div>
+            <div class="game__user-choice">
+              <p>The House Picked</p>
+              <button class="game__button" disabled></button>
+            </div>
+          </div>
         </section>
       </main>
     </div>
