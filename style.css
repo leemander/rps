@@ -79,12 +79,13 @@ body {
   background-color: hsl(235, 48%, 16%);
   color: #ffff;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  padding-top: 3em;
 }
 
 .container {
   margin: 0 auto;
   max-width: 70em;
-  padding: 4em 0;
   width: calc(100% - 3em);
 }
 
@@ -98,8 +99,8 @@ header {
 }
 
 h1 {
-  font-size: 2.5rem;
-  line-height: 1;
+  font-size: 3rem;
+  line-height: 0.8;
   margin: 0;
   max-width: 10ch;
   text-transform: uppercase;
@@ -129,6 +130,47 @@ h1 {
   font-size: 5rem;
   font-weight: 700;
   margin: 0;
+}
+
+.game--active {
+  aspect-ratio: 1;
+  display: grid;
+  background-image: url(./images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  max-width: 40em;
+}
+
+.game__button {
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  border: 1em solid;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 12em;
+  margin: auto;
+}
+
+.game__button--paper {
+  background-image: url(./images/icon-paper.svg);
+  border-color: hsl(229, 87%, 63%);
+}
+
+.game__button--scissors {
+  background-image: url(./images/icon-scissors.svg);
+  border-color: hsl(40, 84%, 51%);
+  margin-left: auto;
+}
+
+.game__button--rock {
+  background-image: url(./images/icon-rock.svg);
+  border-color: hsl(349, 68%, 54%);
+  grid-column: 1 / -1;
+  margin: auto;
 }
 
 .game--active.hide {
